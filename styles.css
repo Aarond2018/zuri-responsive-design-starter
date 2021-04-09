@@ -13,6 +13,7 @@ div.nav-bar {
     padding: 1rem 6rem;
     width: 100vw;
     background: #304353;
+    align-items: center;
 }
 
 div.logo {
@@ -24,6 +25,7 @@ ul.nav-links {
     display: flex;
     margin: 0;
     padding: 0;
+    transition: all .3s;
 }
 
 ul li {
@@ -100,8 +102,9 @@ div.background {
     box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
     padding: 15px 40px;
     width: 550px;
-    height: 220px;
+    min-height: 220px;
     position: relative;
+    padding-right: 65px;
 }
 
 div.background h4 {
@@ -122,12 +125,14 @@ div.background p {
 div.hero-background-pos {
     position: absolute;
     right: 0px;
-    left: 66%;
+    top: 50%;
+    transform: translate(50%, -50%);
     background: #fff;
     width: 140px;
     height: 140px;
     border-radius: 50%;
     box-shadow: 2px 2px 15px 0 rgb(135 135 135 / 40%);
+
 }
 
 div.snapshot-team {
@@ -344,4 +349,186 @@ div.footer h6 {
     color: #88949B;
     font-size: 1rem;
     padding-top: 6rem;
+}
+
+
+.nav-mobile {
+    width: 3rem;
+    height: 3rem;
+    background: #bcc3c7;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+}
+
+.nav-mobile--toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.nav-mobile--toggle span {
+    background: #304353;
+    width: 2rem;
+    height: 2px;
+    position: relative;
+    margin: 2px 0;
+    transition: all .3s;
+}
+
+.nav-mobile--toggle span::before,
+.nav-mobile--toggle span::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2px;
+    background: #304353;
+    margin: 2px 0;
+    transition: all .3s;
+}
+
+.nav-mobile--toggle span::before {
+    top: 2px;
+    left: 0;
+}
+
+.nav-mobile--toggle span::after {
+    bottom: 2px;
+    left: 0;
+}
+
+.nav-mobile-toggle--bg {
+    background: #bcc3c7;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: all .3s;
+}
+
+.mobileNav {
+    transform: scale(50);
+    position: fixed;
+}
+
+.showNav {
+    transform: translate(-50%, -50%);
+    top: 50% !important;
+    left: 50%;
+    z-index: 5;
+}
+
+
+
+/* Media Queries...... */
+
+@media (max-width: 760px) {
+    ul.nav-links {
+        flex-direction: column;
+        top: -100%;
+        position: fixed;
+    }
+
+    ul.nav-links li {
+        margin: 1rem 0;
+    }
+
+    ul.nav-links li a {
+        font-size: 1.3rem;
+        color: #304353;
+    }
+
+    .hero-background-pos {
+        display: none;
+    }
+    div.background {
+        padding: 10px 30px;
+    }
+    div.hero-background {
+        padding: 6rem 8rem;
+    }
+    div.snapshot-team {
+        padding: 2rem 3rem;
+    }
+    div.snapshot-team h2,
+    div.footer-content h4,
+    div.gallery-content h4 {
+        font-size: 1.2rem;
+    }
+    div.snapshot-box-content {
+        flex-direction: column;
+    }
+    div.snapshot-box {
+        padding: 2rem 8rem;
+    }
+    div.gallery-content h4 {
+        font-size: 1.2rem;
+    }
+    .nav-mobile {
+        display: block;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .footer-input {
+        flex-direction: column;
+    }
+    .footer-input input {
+        margin: 0.5rem auto;
+        width: 100%;
+    }
+    .footer-textarea textarea {
+        width: 100%;
+    }
+    div.nav-bar {
+        padding: 1rem 3rem;
+    }
+    div.hero-section {
+        padding: 8rem 6rem;
+    }
+    div.background h4 {
+        padding: 2rem 0.5rem;
+        font-size: 1.2rem;
+    }
+    div.background p {
+        padding-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    div.hero-content-heading h3 {
+        font-size: 1.5rem;
+    }
+    div.hero-content-heading p {
+        font-size: 0.8rem;
+    }
+    div.logo {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    div.nav-bar {
+        padding: 1rem 2rem;
+    }
+    div.hero-content-btn a {
+        font-size: 0.7rem;
+        font-weight: 500;
+    }
+    div.footer h6 {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 370px) {
+    div.hero-section {
+        padding: 8rem 4rem;
+    }
 }
